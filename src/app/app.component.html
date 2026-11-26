@@ -1,0 +1,12 @@
+<header><h1>{{ title }}</h1></header>
+<main>
+  <h2>Liste des étudiants</h2>
+  <p>Moyenne générale : {{ moyenneGenerale | number:'1.1-2' }}/20</p>
+  <label>Rechercher un étudiant <input [(ngModel)]="searchQuery"></label>
+  <ul class="grid">
+    <li class="card" *ngFor="let student of filteredStudents">
+      {{ student.prenom }} {{ student.nom }} — {{ student.moyenne | number:'1.1-2' }}/20
+    </li>
+  </ul>
+  <p *ngIf="filteredStudents.length === 0">Aucun étudiant trouvé.</p>
+</main>
